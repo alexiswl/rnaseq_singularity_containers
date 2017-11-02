@@ -18,6 +18,7 @@ MAINTAINER Alexis Lucattini <alexis.lucattini@agrf.org.au>
 RUN conda install -c conda-forge perl=5.22.0
 RUN conda install -c bioconda bwa=0.7.16
 RUN conda install -c bioconda rna-seqc=1.1.8
+ENV LANG=C
 
 WORKDIR /data/
 
