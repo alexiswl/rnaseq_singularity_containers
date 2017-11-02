@@ -17,6 +17,7 @@ MAINTAINER Alexis Lucattini <alexis.lucattini@agrf.org.au>
 
 RUN conda install -c conda-forge perl=5.22.0
 RUN conda install -c bioconda trim-galore=0.4.4
+ENV LANG=C
 
 WORKDIR /data/
 

@@ -2,6 +2,7 @@
 
 # /path/to/singularity_folder
 SINGULARITY_OUTPUT=/home/alexis/singularity
+mkdir -p ${SINGULARITY_OUTPUT}
 
 # Build docker files, grabbing each of the folders and removing './' from the start.
 find . -mindepth 1 -maxdepth 1 -type d -not -name ".*" | sed 's/\.\///g' | xargs -n1 -I{} sudo docker build {} -t {}
