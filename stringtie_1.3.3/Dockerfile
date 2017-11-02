@@ -15,7 +15,7 @@ LABEL tags="Genomics"
 # Maintainer
 MAINTAINER Alexis Lucattini <alexis.lucattini@agrf.org.au>
 
-RUN conda intsall -c bioconda stringtie
+RUN conda install -c bioconda stringtie=1.3.3
 
 WORKDIR /data/
 

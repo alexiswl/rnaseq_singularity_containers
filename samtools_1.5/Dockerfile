@@ -15,7 +15,7 @@ LABEL tags="Genomics"
 # Maintainer
 MAINTAINER Alexis Lucattini <alexis.lucattini@agrf.org.au>
 
-RUN conda intsall -c bioconda samtools=1.5
+RUN conda install -c bioconda samtools=1.5
 
 WORKDIR /data/
 

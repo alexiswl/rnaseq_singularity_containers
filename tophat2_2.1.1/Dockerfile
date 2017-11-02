@@ -15,7 +15,7 @@ LABEL tags="Genomics"
 # Maintainer
 MAINTAINER Alexis Lucattini <alexis.lucattini@agrf.org.au>
 
-RUN conda install -c bioconda tophat2=2.1.1
+RUN conda install -c bioconda tophat=2.1.1
 
 WORKDIR /data/
 
