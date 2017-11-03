@@ -1,5 +1,5 @@
 # Base Image
-FROM biocontainers/biocontainers:latest
+FROM alexiswl/containers:latest
 
 # Metadata
 LABEL base.image="biocontainers:latest"
