@@ -11,16 +11,23 @@ RUN apt-get install aptitude -y
 
 
 # Install curl
-RUN apt-get install curl -y
+RUN apt-get install curl libcurl4-gnutls-dev -y
 
 # Openssl required
-RUN apt-get install libssl -y
+RUN apt-get install libssl-dev -y
 
 # Libxml2 required
-RUN apt-get install libxml2 -y
+RUN apt-get install libxml2-dev -y
 
 # Cairo required
-RUN apt-get install libcairo2 -y
+RUN aptitude install libglib2.0-0=2.54.1-1 -y
+RUN aptitude install libglib2.0-dev -y
+RUN apt-get install libcairo2-dev -y
+# Cairo backend 
+RUN aptitude install libpango-1.0-0=1.40.12-1 -y
+RUN aptitude install libpangocairo-1.0-0=1.40.12-1 -y
+RUN aptitude install libpangoft2-1.0-0=1.40.12-1 -y
+RUN apt-get install libpango1.0-dev libgtk2.0-dev xvfb xauth xfonts-base libxt-dev -y
 
 # 'docker' is the user in r-base
 # Change into user directory.
