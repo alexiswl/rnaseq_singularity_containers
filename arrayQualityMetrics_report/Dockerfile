@@ -5,7 +5,7 @@ FROM r-base:latest
 ADD AQM.R .
 
 # Install the arrayQualityMetrics package
-RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite(arrayQualityMetrics)"
+RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('arrayQualityMetrics')"
 
 # Now run the AQM.R script
 ENTRYPOINT ["Rscript", "./AQM.R"]
