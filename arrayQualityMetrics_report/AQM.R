@@ -23,7 +23,7 @@ library("DESeq2")
 # Step 1: Run data through DESeq2 pipeline
 dds <- DESeqDataSetFromMatrix(countData=countdata, colData=design, design=~condition)
 cds <- estimateDispersions(estimateSizeFactors(dds))
-vsd=varianceStabilizingTransformation(cds, blind=T)
+vsd <- varianceStabilizingTransformation(cds, blind=T)
 
 # Step 2: Output the array quality metrics to file
 arrayQualityMetrics(ExpressionSet(assay(vsd)),
