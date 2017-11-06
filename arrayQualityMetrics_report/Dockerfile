@@ -1,6 +1,10 @@
 # Download the latest R-repo
 FROM r-base:latest
 
+# Install curl
+apt-get update
+apt-get install curl
+
 # Download R script
 RUN curl -o AQM.R https://raw.githubusercontent.com/alexiswl/rnaseq_singularity_containers/master/arrayQualityMetrics_report/AQM.R
 
