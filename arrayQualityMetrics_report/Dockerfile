@@ -1,14 +1,11 @@
 # Download the latest R-repo
 FROM r-base:latest
 
-# Update cahce
+# Update cache and install apt-utils
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 
 # Aptitude required for RCurl
 RUN apt-get install aptitude -y
-
-# Install apt utils
-
 
 # Install curl
 RUN apt-get install curl libcurl4-gnutls-dev -y
@@ -23,7 +20,8 @@ RUN apt-get install libxml2-dev -y
 RUN aptitude install libglib2.0-0=2.54.1-1 -y
 RUN aptitude install libglib2.0-dev -y
 RUN apt-get install libcairo2-dev -y
-# Cairo backend 
+
+# Cairo backend - requires version controlling
 RUN aptitude install libpango-1.0-0=1.40.12-1 -y
 RUN aptitude install libpangocairo-1.0-0=1.40.12-1 -y
 RUN aptitude install libpangoft2-1.0-0=1.40.12-1 -y
@@ -37,7 +35,7 @@ WORKDIR /home/docker
 RUN curl -o AQM.R https://raw.githubusercontent.com/alexiswl/rnaseq_singularity_containers/master/arrayQualityMetrics_report/AQM.R
 
 # Install the arrayQualityMetrics package
-RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('arrayQualityMetrics')"
+RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite(c('DESeq2', 'arrayQualityMetrics'))"
 
 # Now run the AQM.R script
 ENTRYPOINT ["Rscript", "/home/docker/AQM.R"]
