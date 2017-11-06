@@ -2,22 +2,25 @@
 FROM r-base:latest
 
 # Update cahce
-RUN apt-get update
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 
 # Aptitude required for RCurl
 RUN apt-get install aptitude -y
+
+# Install apt utils
+
 
 # Install curl
 RUN apt-get install curl -y
 
 # Openssl required
-RUN apt-get install libssl-dev -y
+RUN apt-get install libssl -y
 
 # Libxml2 required
-RUN apt-get install libxml2-dev -y
+RUN apt-get install libxml2 -y
 
 # Cairo required
-RUN apt-get install libcairo2-dev -y
+RUN apt-get install libcairo2 -y
 
 # 'docker' is the user in r-base
 # Change into user directory.
