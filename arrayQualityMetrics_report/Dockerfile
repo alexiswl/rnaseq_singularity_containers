@@ -1,11 +1,13 @@
 # Download the latest R-repo
 FROM r-base:latest
 
+# Update cahce
+RUN apt-get update
+
 # Aptitude required for RCurl
 RUN apt-get install aptitude
 
 # Install curl
-RUN apt-get update
 RUN apt-get install curl
 
 # Openssl required
